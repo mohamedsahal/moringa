@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Search, Mail, ArrowRight, Leaf, Code, Cloud, Users } from "lucide-react";
+import Spline from '@splinetool/react-spline';
 import { MoringaLogo } from "@/components/moringa-logo";
 import { AnimatedCounter } from "@/components/animated-counter";
 import { Button } from "@/components/ui/button";
@@ -93,6 +94,17 @@ export default function Landing() {
 
       {/* Hero Section */}
       <section className="min-h-screen flex items-center justify-center relative px-6 pt-20">
+        {/* 3D Spline Background */}
+        <div className="absolute inset-0 z-0">
+          <Spline 
+            scene="https://prod.spline.design/QYHiMjWrshPtiX4K/scene.splinecode"
+            style={{ width: '100%', height: '100%', opacity: 0.6 }}
+          />
+        </div>
+        
+        {/* Overlay to ensure text readability */}
+        <div className="absolute inset-0 bg-slate-900/60 z-5"></div>
+        
         <div className="container mx-auto text-center relative z-10">
           {/* Animated Counter */}
           <motion.div
