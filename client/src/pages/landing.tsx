@@ -59,7 +59,7 @@ export default function Landing() {
   };
 
   return (
-    <div className="min-h-screen text-white overflow-x-hidden" style={{ 
+    <div className="min-h-screen bg-slate-900 text-white overflow-x-hidden" style={{ 
       background: 'linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%)' 
     }}>
       {/* Subtle background pattern */}
@@ -93,98 +93,91 @@ export default function Landing() {
       </nav>
 
       {/* Hero Section */}
-      <section className="min-h-screen flex items-center justify-center relative px-6 pt-20">
-        {/* 3D Spline Background */}
-        <div className="absolute inset-0 z-0">
-          <Spline 
-            scene="https://prod.spline.design/QYHiMjWrshPtiX4K/scene.splinecode"
-            style={{ width: '100%', height: '100%', opacity: 0.6 }}
-          />
-        </div>
-        
-        {/* Overlay to ensure text readability */}
-        <div className="absolute inset-0 bg-slate-900/60 z-5"></div>
-        
-        <div className="container mx-auto text-center relative z-10">
-          {/* Animated Counter */}
-          <motion.div
-            className="mb-8"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            <div className="inline-flex items-center backdrop-blur-md bg-green-500/10 border border-green-500/20 rounded-full px-6 py-3 hover:shadow-2xl hover:shadow-green-500/25 transition-all duration-300">
-              <AnimatedCounter className="text-4xl font-bold text-green-400" suffix="+" />
-              <span className="text-lg ml-2 text-green-300">HAPPY CLIENTS</span>
-              <span className="ml-2 text-2xl">😊</span>
+      <section className="min-h-screen flex items-center relative px-6 pt-20 bg-slate-900">
+        <div className="container mx-auto relative z-10">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Left Column - Text Content */}
+            <div className="text-left">
+              {/* Main Heading */}
+              <motion.h1
+                className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+              >
+                Transform Your<br />
+                <span className="bg-gradient-to-r from-green-400 via-emerald-500 to-green-600 bg-clip-text text-transparent">
+                  Business
+                </span>
+              </motion.h1>
+
+              {/* Subheading */}
+              <motion.p
+                className="text-lg text-gray-300 mb-8 leading-relaxed"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.4 }}
+              >
+                Enterprise solutions for digital transformation with cutting-edge ERP systems and cloud services.
+              </motion.p>
+
+              {/* Call to Action Buttons */}
+              <motion.div
+                className="flex flex-col sm:flex-row gap-4 mb-8"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.6 }}
+              >
+                <Button
+                  size="lg"
+                  className="bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white font-semibold px-8 py-4 rounded-lg transition-all duration-300"
+                >
+                  Get Started
+                </Button>
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="border-green-500 text-green-400 hover:bg-green-500/10 px-8 py-4 rounded-lg"
+                >
+                  Learn More
+                </Button>
+              </motion.div>
+
+              {/* Stats */}
+              <motion.div
+                className="flex gap-8"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.8 }}
+              >
+                <div>
+                  <div className="text-2xl font-bold text-green-400">
+                    <AnimatedCounter suffix="+" />
+                  </div>
+                  <div className="text-sm text-gray-400">Happy Clients</div>
+                </div>
+                <div>
+                  <div className="text-2xl font-bold text-green-400">98%</div>
+                  <div className="text-sm text-gray-400">Success Rate</div>
+                </div>
+              </motion.div>
             </div>
-          </motion.div>
 
-          {/* Main Heading */}
-          <motion.h1
-            className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
-            Enterprise Solutions for<br />
-            <span className="bg-gradient-to-r from-green-400 via-emerald-500 to-green-600 bg-clip-text text-transparent">
-              Digital Transformation
-            </span>
-          </motion.h1>
-
-          {/* Subheading */}
-          <motion.p
-            className="text-lg md:text-xl text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-          >
-            Empowering businesses with cutting-edge ERP systems, custom software development, and scalable cloud infrastructure. Transform your operations with our proven enterprise solutions.
-          </motion.p>
-
-          {/* Search Bar */}
-          <motion.div
-            className="relative max-w-md mx-auto mb-12"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-          >
-            <div className="backdrop-blur-md bg-white/5 border border-green-500/20 rounded-full p-4 hover:shadow-2xl hover:shadow-green-500/20 transition-all duration-300">
-              <div className="flex items-center">
-                <Search className="text-green-400 mr-3" />
-                <Input
-                  type="text"
-                  placeholder="www.Search"
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  className="bg-transparent border-none outline-none flex-1 text-white placeholder-gray-400 focus:ring-0"
+            {/* Right Column - 3D Component */}
+            <div className="relative h-[600px] lg:h-[700px]">
+              <motion.div
+                className="w-full h-full"
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 1, delay: 0.5 }}
+              >
+                <Spline 
+                  scene="https://prod.spline.design/QYHiMjWrshPtiX4K/scene.splinecode"
+                  style={{ width: '100%', height: '100%' }}
                 />
-              </div>
+              </motion.div>
             </div>
-          </motion.div>
-
-          {/* Call to Action Buttons */}
-          <motion.div
-            className="flex flex-col sm:flex-row gap-4 justify-center mb-16"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.8 }}
-          >
-            <Button
-              size="lg"
-              className="bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white font-semibold px-8 py-4 rounded-lg transition-all duration-300"
-            >
-              Schedule Consultation
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="border-green-500 text-green-400 hover:bg-green-500/10 px-8 py-4 rounded-lg"
-            >
-              View Our Work
-            </Button>
-          </motion.div>
+          </div>
         </div>
       </section>
 
