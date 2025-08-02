@@ -1,7 +1,7 @@
 # Project Overview
 
 ## Overview
-This is a modern full-stack web application built as a technology services company website. The application features a sleek, futuristic design with animations, a contact form system, and client statistics tracking. It combines a React-based frontend with an Express.js backend, utilizing PostgreSQL for data persistence and a comprehensive UI component library for consistent design.
+This is a modern full-stack web application built as a technology services company website for Moringa. The application features a sleek, futuristic design with green nature-themed colors, animations, a contact form system, and client statistics tracking. It combines a React-based frontend with an Express.js backend, utilizing PostgreSQL for data persistence and a comprehensive UI component library for consistent design.
 
 ## User Preferences
 Preferred communication style: Simple, everyday language.
@@ -34,7 +34,8 @@ Preferred communication style: Simple, everyday language.
 ### Design System
 - **Component Library**: Comprehensive UI component system with consistent styling
 - **Theme System**: CSS custom properties for light/dark mode theming
-- **Color Palette**: Futuristic color scheme with electric blue and cyan accents
+- **Color Palette**: Nature-inspired green color scheme with Moringa brand colors
+- **Brand Identity**: Custom Moringa logo component with SVG implementation
 - **Typography**: Tailwind typography utilities with custom font configurations
 - **Responsive Design**: Mobile-first approach with breakpoint-based layouts
 
@@ -65,3 +66,10 @@ Preferred communication style: Simple, everyday language.
 - **clsx/twMerge**: Conditional CSS class name utilities
 - **date-fns**: Modern date utility library for JavaScript
 - **nanoid**: URL-safe unique string ID generator
+
+## Recent Changes (August 2, 2025)
+- **Brand Identity Update**: Changed company name from JTech to Moringa
+- **Logo Implementation**: Created custom SVG Moringa logo component with transparent background
+- **Color Scheme Overhaul**: Updated entire theme to green nature-inspired colors matching Moringa brand
+- **Brand Carousel Update**: Changed partner company names to eco-friendly, nature-themed brands
+- **Theme Storage**: Updated local storage key to "moringa-ui-theme"

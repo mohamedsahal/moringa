@@ -1,15 +1,15 @@
 import { motion } from "framer-motion";
-import { Building2, Cloud, Code, Database, Globe, Shield, Cpu, Zap } from "lucide-react";
+import { Building2, Cloud, Code, Database, Globe, Shield, Cpu, Leaf, Trees, Sprout } from "lucide-react";
 
 const brands = [
-  { name: "MyBank", icon: Building2, color: "text-blue-400" },
-  { name: "Nova", icon: Zap, color: "text-purple-400" },
-  { name: "CloudTech", icon: Cloud, color: "text-cyan-400" },
-  { name: "DevCorp", icon: Code, color: "text-green-400" },
-  { name: "DataFlow", icon: Database, color: "text-orange-400" },
-  { name: "WebScale", icon: Globe, color: "text-pink-400" },
-  { name: "SecureNet", icon: Shield, color: "text-red-400" },
-  { name: "TechCore", icon: Cpu, color: "text-yellow-400" },
+  { name: "EcoBank", icon: Building2, color: "text-green-400" },
+  { name: "GreenTech", icon: Leaf, color: "text-emerald-400" },
+  { name: "NatureCloud", icon: Cloud, color: "text-green-500" },
+  { name: "BioCode", icon: Code, color: "text-lime-400" },
+  { name: "EcoFlow", icon: Database, color: "text-emerald-500" },
+  { name: "GreenScale", icon: Globe, color: "text-green-600" },
+  { name: "EcoShield", icon: Shield, color: "text-lime-500" },
+  { name: "GreenCore", icon: Sprout, color: "text-emerald-600" },
 ];
 
 export function BrandCarousel() {

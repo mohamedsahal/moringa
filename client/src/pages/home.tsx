@@ -5,6 +5,7 @@ import { SiLinkedin, SiX, SiGithub } from "react-icons/si";
 import { ParticlesBackground } from "@/components/particles-background";
 import { AnimatedCounter } from "@/components/animated-counter";
 import { BrandCarousel } from "@/components/brand-carousel";
+import { MoringaLogo } from "@/components/moringa-logo";
 import { useTheme } from "@/components/ui/theme-provider";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -92,7 +93,10 @@ export default function Home() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5 }}
             >
-              <div className="text-2xl font-bold gradient-text">JTech</div>
+              <div className="flex items-center space-x-3">
+                <MoringaLogo size={40} className="text-primary" />
+                <div className="text-2xl font-bold gradient-text">Moringa</div>
+              </div>
               {!isMobile && (
                 <div className="flex space-x-6">
                   {["Home", "Services", "Clients", "Contact"].map((item) => (
@@ -525,7 +529,10 @@ export default function Home() {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <div className="text-3xl font-bold gradient-text mb-4">JTech</div>
+            <div className="flex items-center justify-center space-x-3 mb-4">
+              <MoringaLogo size={48} className="text-primary" />
+              <div className="text-3xl font-bold gradient-text">Moringa</div>
+            </div>
             <p className="text-gray-400 mb-6">Transforming businesses through innovative technology solutions</p>
             <div className="flex justify-center space-x-6 mb-8">
               {[
@@ -544,7 +551,7 @@ export default function Home() {
                 </motion.a>
               ))}
             </div>
-            <p className="text-gray-500">&copy; 2024 JTech. All rights reserved.</p>
+            <p className="text-gray-500">&copy; 2024 Moringa. All rights reserved.</p>
           </motion.div>
         </div>
       </footer>
