@@ -93,11 +93,11 @@ export default function Landing() {
       </nav>
 
       {/* Hero Section */}
-      <section className="min-h-screen flex items-center relative px-6 pt-20 bg-slate-900">
+      <section className="min-h-screen flex items-center justify-center relative px-6 pt-20 bg-slate-900">
         <div className="container mx-auto relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left Column - Text Content */}
-            <div className="text-left">
+            <div className="text-center lg:text-left">
               {/* Main Heading */}
               <motion.h1
                 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight"
@@ -123,7 +123,7 @@ export default function Landing() {
 
               {/* Call to Action Buttons */}
               <motion.div
-                className="flex flex-col sm:flex-row gap-4 mb-8"
+                className="flex flex-col sm:flex-row gap-4 mb-8 justify-center lg:justify-start"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.6 }}
@@ -145,7 +145,7 @@ export default function Landing() {
 
               {/* Stats */}
               <motion.div
-                className="flex gap-8"
+                className="flex gap-8 justify-center lg:justify-start"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.8 }}
@@ -163,8 +163,8 @@ export default function Landing() {
               </motion.div>
             </div>
 
-            {/* Right Column - 3D Component */}
-            <div className="relative h-[600px] lg:h-[700px]">
+            {/* Right Column - 3D Component (Hidden on mobile) */}
+            <div className="relative h-[600px] lg:h-[700px] hidden lg:block">
               <motion.div
                 className="w-full h-full"
                 initial={{ opacity: 0, scale: 0.9 }}
