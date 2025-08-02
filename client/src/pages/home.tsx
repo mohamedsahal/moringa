@@ -80,7 +80,9 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-dark-navy via-darker-blue to-dark-navy text-white overflow-x-hidden">
+    <div className="min-h-screen bg-slate-900 text-white overflow-x-hidden" style={{ 
+      background: 'linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%)' 
+    }}>
       <ParticlesBackground />
 
       {/* Navigation */}
