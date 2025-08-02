@@ -61,32 +61,12 @@ export default function Landing() {
     <div className="min-h-screen text-white overflow-x-hidden" style={{ 
       background: 'linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%)' 
     }}>
-      {/* Floating particles */}
-      <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
-        {Array.from({ length: 30 }, (_, i) => (
-          <motion.div
-            key={i}
-            className="absolute rounded-full opacity-20"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              width: `${Math.random() * 4 + 2}px`,
-              height: `${Math.random() * 4 + 2}px`,
-              background: 'linear-gradient(45deg, #22c55e, #16a34a)',
-            }}
-            animate={{
-              y: [0, -30, 0],
-              x: [0, Math.sin(i) * 20, 0],
-              opacity: [0.2, 0.6, 0.2],
-            }}
-            transition={{
-              duration: Math.random() * 10 + 10,
-              delay: Math.random() * 5,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
-          />
-        ))}
+      {/* Subtle background pattern */}
+      <div className="fixed inset-0 overflow-hidden pointer-events-none z-0 opacity-10">
+        <div className="absolute inset-0" style={{
+          backgroundImage: `radial-gradient(circle at 25% 25%, #22c55e 2px, transparent 2px), radial-gradient(circle at 75% 75%, #16a34a 1px, transparent 1px)`,
+          backgroundSize: '100px 100px'
+        }} />
       </div>
 
       {/* Navigation */}
@@ -130,28 +110,25 @@ export default function Landing() {
 
           {/* Main Heading */}
           <motion.h1
-            className="text-4xl md:text-6xl lg:text-8xl font-bold mb-6"
+            className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            Let's Make Your<br />
+            Enterprise Solutions for<br />
             <span className="bg-gradient-to-r from-green-400 via-emerald-500 to-green-600 bg-clip-text text-transparent">
-              Business
-            </span><br />
-            <span className="bg-gradient-to-r from-green-400 via-emerald-500 to-green-600 bg-clip-text text-transparent">
-              Flourish.
+              Digital Transformation
             </span>
           </motion.h1>
 
           {/* Subheading */}
           <motion.p
-            className="text-lg md:text-xl lg:text-2xl text-gray-300 mb-8 max-w-4xl mx-auto"
+            className="text-lg md:text-xl text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            Streamline operations with our tailored ERP systems, innovative software development, and comprehensive cloud services.
+            Empowering businesses with cutting-edge ERP systems, custom software development, and scalable cloud infrastructure. Transform your operations with our proven enterprise solutions.
           </motion.p>
 
           {/* Search Bar */}
@@ -175,63 +152,160 @@ export default function Landing() {
             </div>
           </motion.div>
 
-          {/* Services Cards */}
+          {/* Call to Action Buttons */}
           <motion.div
-            className="grid md:grid-cols-3 gap-8 mb-16 max-w-6xl mx-auto"
-            initial={{ opacity: 0, y: 40 }}
+            className="flex flex-col sm:flex-row gap-4 justify-center mb-16"
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
           >
+            <Button
+              size="lg"
+              className="bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white font-semibold px-8 py-4 rounded-lg transition-all duration-300"
+            >
+              Schedule Consultation
+            </Button>
+            <Button
+              size="lg"
+              variant="outline"
+              className="border-green-500 text-green-400 hover:bg-green-500/10 px-8 py-4 rounded-lg"
+            >
+              View Our Work
+            </Button>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Services Section */}
+      <section className="py-20 px-6">
+        <div className="container mx-auto">
+          <motion.div
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Our <span className="bg-gradient-to-r from-green-400 to-emerald-600 bg-clip-text text-transparent">
+                Core Services
+              </span>
+            </h2>
+            <p className="text-gray-300 text-lg max-w-2xl mx-auto">
+              Comprehensive technology solutions designed to accelerate your business growth
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-3 gap-8 mb-16 max-w-6xl mx-auto">
             {[
               {
                 icon: Code,
                 title: "ERP Systems",
-                description: "Tailored Enterprise Resource Planning solutions",
+                description: "End-to-end Enterprise Resource Planning solutions that integrate all your business processes into a single, efficient system.",
+                features: ["Custom Workflows", "Real-time Analytics", "Multi-platform Integration"],
                 color: "text-green-400"
               },
               {
                 icon: Cloud,
                 title: "Software Development",
-                description: "Innovative custom software solutions",
+                description: "Bespoke software applications built with modern technologies to solve your unique business challenges.",
+                features: ["Web Applications", "Mobile Solutions", "API Development"],
                 color: "text-emerald-400"
               },
               {
                 icon: Leaf,
                 title: "Cloud Services",
-                description: "Comprehensive cloud infrastructure",
+                description: "Scalable cloud infrastructure and migration services to ensure your business stays ahead of the curve.",
+                features: ["Cloud Migration", "DevOps Solutions", "24/7 Support"],
                 color: "text-lime-400"
               }
             ].map((service, index) => (
               <motion.div
                 key={service.title}
-                whileHover={{ scale: 1.05 }}
-                transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.2 }}
+                viewport={{ once: true }}
               >
-                <Card className="backdrop-blur-md bg-white/5 border border-green-500/20 hover:border-green-500/40 transition-all duration-300 hover:shadow-2xl hover:shadow-green-500/10">
-                  <CardContent className="p-8 text-center">
-                    <motion.div
-                      className="w-16 h-16 mx-auto mb-6 backdrop-blur-md bg-green-500/10 rounded-2xl flex items-center justify-center"
-                      whileHover={{ scale: 1.1 }}
-                      transition={{ type: "spring", stiffness: 400, damping: 17 }}
-                    >
-                      <service.icon className={`text-2xl ${service.color}`} />
-                    </motion.div>
-                    <h3 className="text-2xl font-bold mb-4 bg-gradient-to-r from-green-400 to-emerald-600 bg-clip-text text-transparent">
+                <Card className="backdrop-blur-md bg-white/5 border border-green-500/20 hover:border-green-500/40 transition-all duration-300 h-full">
+                  <CardContent className="p-8">
+                    <div className="w-12 h-12 mb-6 backdrop-blur-md bg-green-500/10 rounded-xl flex items-center justify-center">
+                      <service.icon className={`text-xl ${service.color}`} />
+                    </div>
+                    <h3 className="text-xl font-bold mb-4 bg-gradient-to-r from-green-400 to-emerald-600 bg-clip-text text-transparent">
                       {service.title}
                     </h3>
-                    <p className="text-gray-300">{service.description}</p>
+                    <p className="text-gray-300 mb-6 text-sm leading-relaxed">{service.description}</p>
+                    <ul className="space-y-2">
+                      {service.features.map((feature, idx) => (
+                        <li key={idx} className="text-green-400 text-sm flex items-center">
+                          <div className="w-1.5 h-1.5 bg-green-400 rounded-full mr-3" />
+                          {feature}
+                        </li>
+                      ))}
+                    </ul>
                   </CardContent>
                 </Card>
               </motion.div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Stats Section */}
+      <section className="py-16 px-6 backdrop-blur-md bg-green-500/5">
+        <div className="container mx-auto">
+          <div className="grid md:grid-cols-4 gap-8 text-center">
+            {[
+              { number: "500+", label: "Projects Delivered" },
+              { number: "98%", label: "Client Satisfaction" },
+              { number: "24/7", label: "Support Available" },
+              { number: "10+", label: "Years Experience" }
+            ].map((stat, index) => (
+              <motion.div
+                key={stat.label}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className="text-center"
+              >
+                <div className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-green-400 to-emerald-600 bg-clip-text text-transparent mb-2">
+                  {stat.number}
+                </div>
+                <div className="text-gray-300 text-sm">{stat.label}</div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section className="py-20 px-6">
+        <div className="container mx-auto">
+          <motion.div
+            className="text-center mb-12"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Ready to <span className="bg-gradient-to-r from-green-400 to-emerald-600 bg-clip-text text-transparent">
+                Transform
+              </span> Your Business?
+            </h2>
+            <p className="text-gray-300 text-lg max-w-2xl mx-auto">
+              Let's discuss how our solutions can drive your business forward
+            </p>
           </motion.div>
 
-          {/* Contact Form */}
           <motion.div
             className="max-w-md mx-auto"
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1.0 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
           >
             <Card className="backdrop-blur-md bg-white/5 border border-green-500/20">
               <CardContent className="p-8">
@@ -324,29 +398,6 @@ export default function Landing() {
             </Card>
           </motion.div>
         </div>
-
-        {/* Floating Elements */}
-        <motion.div
-          className="absolute top-1/4 left-10 backdrop-blur-md bg-green-500/10 rounded-full p-4 border border-green-500/20"
-          animate={{ y: [0, -20, 0] }}
-          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-        >
-          <Code className="text-2xl text-green-400" />
-        </motion.div>
-        <motion.div
-          className="absolute top-1/3 right-10 backdrop-blur-md bg-emerald-500/10 rounded-full p-4 border border-emerald-500/20"
-          animate={{ y: [0, -15, 0] }}
-          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-        >
-          <Cloud className="text-2xl text-emerald-400" />
-        </motion.div>
-        <motion.div
-          className="absolute bottom-1/4 left-1/4 backdrop-blur-md bg-lime-500/10 rounded-full p-4 border border-lime-500/20"
-          animate={{ y: [0, -25, 0] }}
-          transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-        >
-          <Leaf className="text-2xl text-lime-400" />
-        </motion.div>
       </section>
 
       {/* Footer */}
