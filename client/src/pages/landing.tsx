@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Search, Mail, ArrowRight, Leaf, Code, Cloud, Users } from "lucide-react";
 import Spline from '@splinetool/react-spline';
 import { MoringaLogo } from "@/components/moringa-logo";
+import moringaLogoPng from "@assets/vecteezy_moringa-logo-vector-template-symbol-nature_35685081 copy_1754236645060.png";
 import { AnimatedCounter } from "@/components/animated-counter";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -80,7 +81,7 @@ export default function Landing() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5 }}
             >
-              <MoringaLogo size={40} />
+              <img src={moringaLogoPng} alt="Moringa Logo" className="w-10 h-10" />
               <div className="text-2xl font-bold bg-gradient-to-r from-green-400 to-emerald-600 bg-clip-text text-transparent">
                 Moringa
               </div>
@@ -94,31 +95,31 @@ export default function Landing() {
 
       {/* Hero Section */}
       <section className="min-h-screen flex items-center justify-center relative px-6 pt-20 bg-slate-900">
-        <div className="container mx-auto relative z-10">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="container mx-auto max-w-7xl relative z-10">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* Left Column - Text Content */}
-            <div className="text-center lg:text-left">
+            <div className="text-center lg:text-left max-w-2xl mx-auto lg:mx-0">
               {/* Main Heading */}
               <motion.h1
-                className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight"
+                className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 leading-tight"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
               >
-                Transform Your<br />
+                Digital Solutions for<br />
                 <span className="bg-gradient-to-r from-green-400 via-emerald-500 to-green-600 bg-clip-text text-transparent">
-                  Business
+                  Modern Business
                 </span>
               </motion.h1>
 
               {/* Subheading */}
               <motion.p
-                className="text-lg text-gray-300 mb-8 leading-relaxed"
+                className="text-xl text-gray-300 mb-10 leading-relaxed"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
               >
-                Enterprise solutions for digital transformation with cutting-edge ERP systems and cloud services.
+                We empower organizations with innovative ERP systems, custom software development, and comprehensive cloud solutions that drive growth and efficiency.
               </motion.p>
 
               {/* Call to Action Buttons */}
@@ -164,9 +165,9 @@ export default function Landing() {
             </div>
 
             {/* Right Column - 3D Component (Hidden on mobile) */}
-            <div className="relative h-[600px] lg:h-[700px] hidden lg:block">
+            <div className="relative h-[500px] lg:h-[600px] hidden lg:block">
               <motion.div
-                className="w-full h-full"
+                className="w-full h-full rounded-2xl overflow-hidden"
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 1, delay: 0.5 }}
@@ -181,9 +182,47 @@ export default function Landing() {
         </div>
       </section>
 
+      {/* Key Features Section */}
+      <section className="py-16 px-6 backdrop-blur-md bg-green-500/5">
+        <div className="container mx-auto max-w-7xl">
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              {
+                icon: "🚀",
+                title: "Fast Implementation",
+                description: "Quick deployment with minimal disruption to your operations"
+              },
+              {
+                icon: "🔒",
+                title: "Secure & Reliable",
+                description: "Enterprise-grade security with 99.9% uptime guarantee"
+              },
+              {
+                icon: "📈",
+                title: "Scalable Solutions",
+                description: "Grows with your business from startup to enterprise"
+              }
+            ].map((feature, index) => (
+              <motion.div
+                key={feature.title}
+                className="text-center p-6 backdrop-blur-md bg-white/5 rounded-xl border border-green-500/20 hover:border-green-500/40 transition-all duration-300"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
+              >
+                <div className="text-4xl mb-4">{feature.icon}</div>
+                <h3 className="text-xl font-bold mb-3 text-white">{feature.title}</h3>
+                <p className="text-gray-300 text-sm">{feature.description}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Services Section */}
       <section className="py-20 px-6">
-        <div className="container mx-auto">
+        <div className="container mx-auto max-w-7xl">
           <motion.div
             className="text-center mb-16"
             initial={{ opacity: 0, y: 20 }}
@@ -201,7 +240,7 @@ export default function Landing() {
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-3 gap-8 mb-16 max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-3 gap-8 mb-16">
             {[
               {
                 icon: Code,
@@ -287,7 +326,7 @@ export default function Landing() {
 
       {/* About Section */}
       <section className="py-20 px-6">
-        <div className="container mx-auto">
+        <div className="container mx-auto max-w-7xl">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <motion.div
               initial={{ opacity: 0, x: -20 }}
@@ -349,7 +388,7 @@ export default function Landing() {
 
       {/* Process Section */}
       <section className="py-20 px-6 backdrop-blur-md bg-green-500/5">
-        <div className="container mx-auto">
+        <div className="container mx-auto max-w-7xl">
           <motion.div
             className="text-center mb-16"
             initial={{ opacity: 0, y: 20 }}
@@ -411,7 +450,7 @@ export default function Landing() {
 
       {/* Testimonials Section */}
       <section className="py-20 px-6">
-        <div className="container mx-auto">
+        <div className="container mx-auto max-w-7xl">
           <motion.div
             className="text-center mb-16"
             initial={{ opacity: 0, y: 20 }}
@@ -479,7 +518,7 @@ export default function Landing() {
 
       {/* Contact Section */}
       <section className="py-20 px-6">
-        <div className="container mx-auto">
+        <div className="container mx-auto max-w-4xl">
           <motion.div
             className="text-center mb-12"
             initial={{ opacity: 0, y: 20 }}
@@ -497,18 +536,75 @@ export default function Landing() {
             </p>
           </motion.div>
 
-          <motion.div
-            className="max-w-md mx-auto"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-          >
-            <Card className="backdrop-blur-md bg-white/5 border border-green-500/20">
-              <CardContent className="p-8">
-                <h3 className="text-2xl font-bold mb-6 text-center bg-gradient-to-r from-green-400 to-emerald-600 bg-clip-text text-transparent">
-                  Get In Touch
-                </h3>
+          <div className="grid lg:grid-cols-2 gap-12 items-start">
+            {/* Contact Information */}
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+            >
+              <h3 className="text-2xl font-bold mb-6 bg-gradient-to-r from-green-400 to-emerald-600 bg-clip-text text-transparent">
+                Let's Start a Conversation
+              </h3>
+              <p className="text-gray-300 mb-8 leading-relaxed">
+                Ready to transform your business? Our team of experts is here to help you find the perfect technology solution for your needs.
+              </p>
+              
+              <div className="space-y-6">
+                <div className="flex items-center space-x-4">
+                  <div className="w-12 h-12 bg-green-500/10 rounded-lg flex items-center justify-center">
+                    <span className="text-green-400">📧</span>
+                  </div>
+                  <div>
+                    <div className="font-semibold text-white">Email</div>
+                    <div className="text-gray-400">info@moringa.co.ke</div>
+                  </div>
+                </div>
+                
+                <div className="flex items-center space-x-4">
+                  <div className="w-12 h-12 bg-green-500/10 rounded-lg flex items-center justify-center">
+                    <span className="text-green-400">📞</span>
+                  </div>
+                  <div>
+                    <div className="font-semibold text-white">Phone</div>
+                    <div className="text-gray-400">+254116355233</div>
+                  </div>
+                </div>
+                
+                <div className="flex items-center space-x-4">
+                  <div className="w-12 h-12 bg-green-500/10 rounded-lg flex items-center justify-center">
+                    <span className="text-green-400">📍</span>
+                  </div>
+                  <div>
+                    <div className="font-semibold text-white">Location</div>
+                    <div className="text-gray-400">Nairobi, Kenya</div>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="mt-8 p-6 backdrop-blur-md bg-green-500/10 rounded-lg border border-green-500/20">
+                <h4 className="font-bold text-white mb-2">Business Hours</h4>
+                <div className="text-gray-300 text-sm">
+                  <p>Monday - Friday: 8:00 AM - 6:00 PM</p>
+                  <p>Saturday: 9:00 AM - 2:00 PM</p>
+                  <p>Sunday: Closed</p>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Contact Form */}
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+            >
+              <Card className="backdrop-blur-md bg-white/5 border border-green-500/20">
+                <CardContent className="p-8">
+                  <h3 className="text-2xl font-bold mb-6 text-center bg-gradient-to-r from-green-400 to-emerald-600 bg-clip-text text-transparent">
+                    Send Us a Message
+                  </h3>
                 <Form {...form}>
                   <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
                     <FormField
@@ -591,9 +687,10 @@ export default function Landing() {
                     </Button>
                   </form>
                 </Form>
-              </CardContent>
-            </Card>
-          </motion.div>
+                </CardContent>
+              </Card>
+            </motion.div>
+          </div>
         </div>
       </section>
 
@@ -603,7 +700,7 @@ export default function Landing() {
           <div className="grid md:grid-cols-4 gap-8 mb-12">
             <div className="md:col-span-2">
               <div className="flex items-center space-x-3 mb-4">
-                <MoringaLogo size={48} />
+                <img src={moringaLogoPng} alt="Moringa Logo" className="w-12 h-12" />
                 <div className="text-3xl font-bold bg-gradient-to-r from-green-400 to-emerald-600 bg-clip-text text-transparent">
                   Moringa
                 </div>
@@ -613,7 +710,7 @@ export default function Landing() {
               </p>
               <div className="text-gray-400">
                 <p className="mb-2">📧 info@moringa.co.ke</p>
-                <p className="mb-2">📞 +254 700 000 000</p>
+                <p className="mb-2">📞 +254116355233</p>
                 <p>📍 Nairobi, Kenya</p>
               </div>
             </div>
