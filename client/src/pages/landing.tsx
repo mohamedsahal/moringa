@@ -13,14 +13,12 @@ import { Form, FormControl, FormField, FormItem, FormMessage } from "@/component
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { insertContactSchema, type InsertContact } from "@shared/schema";
-import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { apiRequest } from "@/lib/queryClient";
+// Frontend-only implementation - no backend calls needed
 import { useToast } from "@/hooks/use-toast";
 
 export default function Landing() {
   const [searchQuery, setSearchQuery] = useState("");
   const { toast } = useToast();
-  const queryClient = useQueryClient();
 
   // Contact form
   const form = useForm<InsertContact>({
@@ -33,30 +31,14 @@ export default function Landing() {
     },
   });
 
-  const contactMutation = useMutation({
-    mutationFn: async (data: InsertContact) => {
-      const response = await apiRequest("POST", "/api/contacts", data);
-      return response.json();
-    },
-    onSuccess: () => {
-      toast({
-        title: "Message sent successfully!",
-        description: "We'll get back to you within 24 hours.",
-      });
-      form.reset();
-      queryClient.invalidateQueries({ queryKey: ["/api/stats"] });
-    },
-    onError: () => {
-      toast({
-        title: "Failed to send message",
-        description: "Please try again later.",
-        variant: "destructive",
-      });
-    },
-  });
-
+  // Frontend-only form submission
   const onSubmit = (data: InsertContact) => {
-    contactMutation.mutate(data);
+    // Just show success message without backend call
+    toast({
+      title: "Message received!",
+      description: "Thank you for your interest. We'll contact you soon at " + data.email,
+    });
+    form.reset();
   };
 
   return (
@@ -153,12 +135,12 @@ export default function Landing() {
               >
                 <div>
                   <div className="text-2xl font-bold text-green-400">
-                    <AnimatedCounter suffix="+" />
+                    <AnimatedCounter target={100} />+
                   </div>
                   <div className="text-sm text-gray-400">Happy Clients</div>
                 </div>
                 <div>
-                  <div className="text-2xl font-bold text-green-400">98%</div>
+                  <div className="text-2xl font-bold text-green-400">100%</div>
                   <div className="text-sm text-gray-400">Success Rate</div>
                 </div>
               </motion.div>
@@ -173,7 +155,7 @@ export default function Landing() {
                 transition={{ duration: 1, delay: 0.5 }}
               >
                 <div className="absolute inset-0 overflow-hidden">
-                  <div className="w-[120%] h-full -mr-[20%]">
+                  <div className="w-[140%] h-full -mr-[40%]">
                     <Spline 
                       scene="https://prod.spline.design/QYHiMjWrshPtiX4K/scene.splinecode"
                       style={{ width: '100%', height: '100%' }}
@@ -678,16 +660,9 @@ export default function Landing() {
                     />
                     <Button
                       type="submit"
-                      disabled={contactMutation.isPending}
                       className="w-full bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white font-semibold py-3 rounded-lg transition-all duration-300 hover:shadow-2xl hover:shadow-green-500/25"
                     >
-                      {contactMutation.isPending ? (
-                        "Sending..."
-                      ) : (
-                        <>
-                          Send Message <ArrowRight className="ml-2 h-4 w-4" />
-                        </>
-                      )}
+                      Send Message <ArrowRight className="ml-2 h-4 w-4" />
                     </Button>
                   </form>
                 </Form>
