@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JTech - Let's Make Your Business Flourish</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        'primary': '#0066FF',
+                        'secondary': '#7C3AED',
+                        'accent': '#00D4FF',
+                        'dark-navy': '#0F0F23',
+                        'darker-blue': '#1A1A2E',
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'glow': 'glow 2s ease-in-out infinite alternate',
+                        'slide-up': 'slideUp 0.6s ease-out',
+                        'fade-in': 'fadeIn 0.8s ease-out',
+                        'counter': 'counter 2s ease-out',
+                        'scroll-x': 'scrollX 30s linear infinite',
+                    },
+                    backdropBlur: {
+                        xs: '2px',
+                    }
+                }
+            }
+        };
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        @keyframes glow {
+            from { box-shadow: 0 0 20px rgba(0, 102, 255, 0.5); }
+            to { box-shadow: 0 0 30px rgba(0, 212, 255, 0.8), 0 0 40px rgba(124, 58, 237, 0.6); }
+        }
+        
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes counter {
+            from { opacity: 0; transform: scale(0.8); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        
+        @keyframes scrollX {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        
+        .glass {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #0066FF, #00D4FF, #7C3AED);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero-gradient {
+            background: radial-gradient(ellipse at center, rgba(0, 102, 255, 0.15) 0%, rgba(124, 58, 237, 0.1) 50%, rgba(15, 15, 35, 1) 100%);
+        }
+        
+        .particle {
+            position: absolute;
+            background: linear-gradient(45deg, #0066FF, #00D4FF);
+            border-radius: 50%;
+            opacity: 0.6;
+            animation: float 8s ease-in-out infinite;
+        }
+        
+        .brand-scroll {
+            animation: scrollX 40s linear infinite;
+        }
+        
+        .brand-scroll:hover {
+            animation-play-state: paused;
+        }
+        
+        .counter-number {
+            animation: counter 2s ease-out;
+        }
+        
+        .hover-glow:hover {
+            transform: scale(1.05);
+            transition: all 0.3s ease;
+            box-shadow: 0 0 30px rgba(0, 102, 255, 0.4);
+        }
+        
+        .nav-blur {
+            backdrop-filter: blur(20px);
+            background: rgba(15, 15, 35, 0.9);
+        }
+        
+        /* Floating particles */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .search-glow {
+            box-shadow: 0 0 0 0 rgba(0, 102, 255, 0.4);
+            animation: pulse-search 2s infinite;
+        }
+        
+        @keyframes pulse-search {
+            0% { box-shadow: 0 0 0 0 rgba(0, 102, 255, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(0, 102, 255, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(0, 102, 255, 0); }
+        }
+    </style>
+</head>
+<body class="bg-dark-navy text-white font-inter">
+    <!-- Floating Particles Background -->
+    <div class="particles">
+        <div class="particle w-2 h-2" style="left: 10%; top: 20%; animation-delay: 0s;"></div>
+        <div class="particle w-1 h-1" style="left: 80%; top: 30%; animation-delay: 2s;"></div>
+        <div class="particle w-3 h-3" style="left: 60%; top: 10%; animation-delay: 4s;"></div>
+        <div class="particle w-1 h-1" style="left: 30%; top: 60%; animation-delay: 1s;"></div>
+        <div class="particle w-2 h-2" style="left: 90%; top: 70%; animation-delay: 3s;"></div>
+        <div class="particle w-1 h-1" style="left: 20%; top: 80%; animation-delay: 5s;"></div>
+    </div>
+
+    <!-- Navigation -->
+    <!-- @COMPONENT: Header [navigation with theme toggle and mobile menu] -->
+    <nav class="fixed top-0 w-full z-50 nav-blur border-b border-white/10">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-8">
+                    <div class="text-2xl font-bold gradient-text">JTech</div>
+                    <div class="hidden md:flex space-x-6">
+                        <a href="#home" class="text-gray-300 hover:text-accent transition-colors">Home</a>
+                        <a href="#services" class="text-gray-300 hover:text-accent transition-colors">Services</a>
+                        <a href="#clients" class="text-gray-300 hover:text-accent transition-colors">Clients</a>
+                        <a href="#contact" class="text-gray-300 hover:text-accent transition-colors">Contact</a>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <!-- Theme Toggle -->
+                    <button class="glass rounded-full p-2 hover-glow" data-event="click:toggleTheme">
+                        <i class="fas fa-sun text-accent"></i>
+                    </button>
+                    <!-- Mobile Menu Button -->
+                    <button class="md:hidden glass rounded-lg p-2" data-event="click:toggleMobileMenu">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- @END_COMPONENT: Header -->
+
+    <!-- Hero Section -->
+    <!-- @COMPONENT: HeroSection [animated text reveals and search functionality] -->
+    <section id="home" class="min-h-screen flex items-center justify-center hero-gradient relative overflow-hidden pt-20">
+        <div class="container mx-auto px-6 text-center relative z-10">
+            <!-- Animated Counter -->
+            <div class="mb-8 animate-slide-up">
+                <div class="inline-flex items-center glass rounded-full px-6 py-3 hover-glow">
+                    <span class="text-4xl font-bold gradient-text counter-number" data-bind="happyClients.count">582</span>
+                    <span class="text-lg ml-2 text-accent">+ HAPPY CLIENTS</span>
+                    <span class="ml-2 text-2xl">😊</span>
+                </div>
+            </div>
+
+            <!-- Main Heading -->
+            <h1 class="text-6xl md:text-8xl font-bold mb-6 animate-fade-in">
+                Let's Make Your<br>
+                <span class="gradient-text">Business</span><br>
+                <span class="gradient-text">Flourish.</span>
+            </h1>
+
+            <!-- Subheading -->
+            <p class="text-xl md:text-2xl text-gray-300 mb-8 max-w-4xl mx-auto animate-slide-up" style="animation-delay: 0.2s;">
+                Streamline operations with our tailored ERP systems, innovative software development, and comprehensive cloud services.
+            </p>
+
+            <!-- Search Bar -->
+            <div class="relative max-w-md mx-auto mb-12 animate-slide-up" style="animation-delay: 0.4s;">
+                <div class="glass rounded-full p-4 search-glow">
+                    <div class="flex items-center">
+                        <i class="fas fa-search text-accent mr-3"></i>
+                        <input type="text" placeholder="www.Search" class="bg-transparent outline-none flex-1 text-white placeholder-gray-400" data-mock="true" />
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hero Image -->
+            <div class="relative animate-fade-in" style="animation-delay: 0.6s;">
+                <!-- Modern technology workspace with multiple monitors and futuristic setup -->
+                <img src="https://pixabay.com/get/ge5d6f7a3d817b395793a395f3c5b4a6d5c16d9fd2460d9ec9f628231a4306d6b5b286636e42fc542e5f3fce353d38db326b8bf302b12104e7d871cee2caa347e_1280.jpg" 
+                     alt="Futuristic technology workspace" 
+                     class="rounded-3xl shadow-2xl mx-auto max-w-4xl w-full hover-glow" 
+                     data-mock-image="true" />
+                <div class="absolute inset-0 bg-gradient-to-t from-dark-navy/50 to-transparent rounded-3xl"></div>
+            </div>
+        </div>
+
+        <!-- Floating Elements -->
+        <div class="absolute top-1/4 left-10 animate-float glass rounded-full p-4" style="animation-delay: 1s;">
+            <i class="fas fa-code text-2xl text-accent"></i>
+        </div>
+        <div class="absolute top-1/3 right-10 animate-float glass rounded-full p-4" style="animation-delay: 2s;">
+            <i class="fas fa-cloud text-2xl text-primary"></i>
+        </div>
+        <div class="absolute bottom-1/4 left-1/4 animate-float glass rounded-full p-4" style="animation-delay: 3s;">
+            <i class="fas fa-database text-2xl text-secondary"></i>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: HeroSection -->
+
+    <!-- Brands Section -->
+    <!-- @COMPONENT: BrandsShowcase [animated carousel of client logos] -->
+    <section id="clients" class="py-20 bg-darker-blue/50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">
+                    Some of the <span class="gradient-text">Brands</span>
+                </h2>
+                <p class="text-xl text-gray-300">We worked with 😊</p>
+            </div>
+
+            <!-- Brand Logos Carousel -->
+            <div class="relative overflow-hidden">
+                <div class="flex space-x-12 brand-scroll">
+                    <!-- @MAP: brands.map(brand => ( -->
+                    <!-- Row 1 -->
+                    <div class="flex-shrink-0 glass rounded-2xl p-6 hover-glow">
+                        <!-- Tech company logo placeholder - modern fintech brand -->
+                        <img src="https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&h=100" alt="MyBank Logo" class="h-16 w-32 object-contain opacity-80 hover:opacity-100 transition-opacity" data-mock-image="true" />
+                    </div>
+                    <div class="flex-shrink-0 glass rounded-2xl p-6 hover-glow">
+                        <!-- Tech startup logo - innovative software company -->
+                        <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&h=100" alt="Nova Logo" class="h-16 w-32 object-contain opacity-80 hover:opacity-100 transition-opacity" data-mock-image="true" />
+                    </div>
+                    <div class="flex-shrink-0 glass rounded-2xl p-6 hover-glow">
+                        <!-- Enterprise software brand logo -->
+                        <img src="https://images.unsplash.com/photo-1559526324-593bc073d938?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&h=100" alt="Brand 1" class="h-16 w-32 object-contain opacity-80 hover:opacity-100 transition-opacity" data-mock-image="true" />
+                    </div>
+                    <div class="flex-shrink-0 glass rounded-2xl p-6 hover-glow">
+                        <!-- Cloud services company logo -->
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&h=100" alt="Brand 2" class="h-16 w-32 object-contain opacity-80 hover:opacity-100 transition-opacity" data-mock-image="true" />
+                    </div>
+                    <div class="flex-shrink-0 glass rounded-2xl p-6 hover-glow">
+                        <!-- SaaS platform brand logo -->
+                        <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&h=100" alt="Brand 3" class="h-16 w-32 object-contain opacity-80 hover:opacity-100 transition-opacity" data-mock-image="true" />
+                    </div>
+                    <div class="flex-shrink-0 glass rounded-2xl p-6 hover-glow">
+                        <!-- Digital transformation company logo -->
+                        <img src="https://images.unsplash.com/photo-1556075798-4825dfaaf498?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&h=100" alt="Brand 4" class="h-16 w-32 object-contain opacity-80 hover:opacity-100 transition-opacity" data-mock-image="true" />
+                    </div>
+                    <!-- Duplicate for seamless loop -->
+                    <div class="flex-shrink-0 glass rounded-2xl p-6 hover-glow">
+                        <img src="https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&h=100" alt="MyBank Logo" class="h-16 w-32 object-contain opacity-80 hover:opacity-100 transition-opacity" data-mock-image="true" />
+                    </div>
+                    <div class="flex-shrink-0 glass rounded-2xl p-6 hover-glow">
+                        <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&h=100" alt="Nova Logo" class="h-16 w-32 object-contain opacity-80 hover:opacity-100 transition-opacity" data-mock-image="true" />
+                    </div>
+                    <!-- @END_MAP )) -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: BrandsShowcase -->
+
+    <!-- Services Section -->
+    <!-- @COMPONENT: ServicesSection [service cards with hover animations] -->
+    <section id="services" class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">
+                    Our <span class="gradient-text">Services</span>
+                </h2>
+                <p class="text-xl text-gray-300 max-w-2xl mx-auto">
+                    Comprehensive solutions to transform your business operations
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- ERP Systems -->
+                <div class="glass rounded-3xl p-8 hover-glow transition-all duration-300 group">
+                    <div class="text-center">
+                        <div class="w-16 h-16 mx-auto mb-6 glass rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform">
+                            <i class="fas fa-cogs text-2xl text-primary"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4 gradient-text">ERP Systems</h3>
+                        <p class="text-gray-300 mb-6">Tailored Enterprise Resource Planning solutions to streamline your business operations and increase efficiency.</p>
+                        <!-- Modern ERP dashboard interface visualization -->
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=200" alt="ERP Dashboard" class="rounded-xl w-full mb-4 opacity-80 group-hover:opacity-100 transition-opacity" data-mock-image="true" />
+                        <button class="glass rounded-full px-6 py-3 hover:bg-primary/20 transition-colors">
+                            Learn More <i class="fas fa-arrow-right ml-2"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Software Development -->
+                <div class="glass rounded-3xl p-8 hover-glow transition-all duration-300 group">
+                    <div class="text-center">
+                        <div class="w-16 h-16 mx-auto mb-6 glass rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform">
+                            <i class="fas fa-code text-2xl text-accent"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4 gradient-text">Software Development</h3>
+                        <p class="text-gray-300 mb-6">Innovative custom software solutions built with cutting-edge technologies to meet your unique business needs.</p>
+                        <!-- Software development team coding environment -->
+                        <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=200" alt="Software Development" class="rounded-xl w-full mb-4 opacity-80 group-hover:opacity-100 transition-opacity" data-mock-image="true" />
+                        <button class="glass rounded-full px-6 py-3 hover:bg-accent/20 transition-colors">
+                            Learn More <i class="fas fa-arrow-right ml-2"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Cloud Services -->
+                <div class="glass rounded-3xl p-8 hover-glow transition-all duration-300 group">
+                    <div class="text-center">
+                        <div class="w-16 h-16 mx-auto mb-6 glass rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform">
+                            <i class="fas fa-cloud text-2xl text-secondary"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4 gradient-text">Cloud Services</h3>
+                        <p class="text-gray-300 mb-6">Comprehensive cloud infrastructure and migration services to scale your business with security and reliability.</p>
+                        <!-- Cloud computing infrastructure visualization -->
+                        <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=200" alt="Cloud Services" class="rounded-xl w-full mb-4 opacity-80 group-hover:opacity-100 transition-opacity" data-mock-image="true" />
+                        <button class="glass rounded-full px-6 py-3 hover:bg-secondary/20 transition-colors">
+                            Learn More <i class="fas fa-arrow-right ml-2"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: ServicesSection -->
+
+    <!-- Contact Section -->
+    <!-- @COMPONENT: ContactSection [contact form with validation] -->
+    <section id="contact" class="py-20 bg-darker-blue/30">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">
+                    Ready to <span class="gradient-text">Transform</span> Your Business?
+                </h2>
+                <p class="text-xl text-gray-300 mb-12">
+                    Get in touch with our experts to discuss your project requirements
+                </p>
+
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <!-- Contact Form -->
+                    <div class="glass rounded-3xl p-8">
+                        <form class="space-y-6" data-implementation="Should validate form before submission">
+                            <div>
+                                <input type="text" placeholder="Your Name" class="w-full glass rounded-xl px-6 py-4 bg-transparent border border-white/20 focus:border-primary outline-none transition-colors" data-mock="true" />
+                            </div>
+                            <div>
+                                <input type="email" placeholder="Your Email" class="w-full glass rounded-xl px-6 py-4 bg-transparent border border-white/20 focus:border-primary outline-none transition-colors" data-mock="true" />
+                            </div>
+                            <div>
+                                <select class="w-full glass rounded-xl px-6 py-4 bg-darker-blue border border-white/20 focus:border-primary outline-none transition-colors text-white" data-mock="true">
+                                    <option value="">Select Service</option>
+                                    <option value="erp">ERP Systems</option>
+                                    <option value="development">Software Development</option>
+                                    <option value="cloud">Cloud Services</option>
+                                </select>
+                            </div>
+                            <div>
+                                <textarea rows="4" placeholder="Tell us about your project" class="w-full glass rounded-xl px-6 py-4 bg-transparent border border-white/20 focus:border-primary outline-none transition-colors resize-none" data-mock="true"></textarea>
+                            </div>
+                            <button type="submit" class="w-full bg-gradient-to-r from-primary to-accent rounded-xl px-8 py-4 font-semibold hover:shadow-2xl hover:shadow-primary/25 transition-all duration-300 transform hover:scale-105" data-event="click:handleSubmit">
+                                Send Message <i class="fas fa-paper-plane ml-2"></i>
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- Contact Info -->
+                    <div class="space-y-8">
+                        <div class="glass rounded-2xl p-6 hover-glow">
+                            <div class="flex items-center space-x-4">
+                                <div class="w-12 h-12 glass rounded-xl flex items-center justify-center">
+                                    <i class="fas fa-envelope text-primary"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-lg">Email Us</h4>
+                                    <p class="text-gray-300">hello@jtech.so</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="glass rounded-2xl p-6 hover-glow">
+                            <div class="flex items-center space-x-4">
+                                <div class="w-12 h-12 glass rounded-xl flex items-center justify-center">
+                                    <i class="fas fa-phone text-accent"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-lg">Call Us</h4>
+                                    <p class="text-gray-300">+1 (555) 123-4567</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="glass rounded-2xl p-6 hover-glow">
+                            <div class="flex items-center space-x-4">
+                                <div class="w-12 h-12 glass rounded-xl flex items-center justify-center">
+                                    <i class="fas fa-map-marker-alt text-secondary"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-lg">Visit Us</h4>
+                                    <p class="text-gray-300">123 Tech Street, Silicon Valley</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- @END_COMPONENT: ContactSection -->
+
+    <!-- Footer -->
+    <footer class="py-12 bg-darker-blue border-t border-white/10">
+        <div class="container mx-auto px-6">
+            <div class="text-center">
+                <div class="text-3xl font-bold gradient-text mb-4">JTech</div>
+                <p class="text-gray-400 mb-6">Transforming businesses through innovative technology solutions</p>
+                <div class="flex justify-center space-x-6 mb-8">
+                    <a href="#" class="glass rounded-full p-3 hover-glow" data-mock="true">
+                        <i class="fab fa-linkedin text-primary"></i>
+                    </a>
+                    <a href="#" class="glass rounded-full p-3 hover-glow" data-mock="true">
+                        <i class="fab fa-twitter text-accent"></i>
+                    </a>
+                    <a href="#" class="glass rounded-full p-3 hover-glow" data-mock="true">
+                        <i class="fab fa-github text-secondary"></i>
+                    </a>
+                </div>
+                <p class="text-gray-500">&copy; 2024 JTech. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        (function() {
+            // Animated Counter Implementation
+            // TODO: Implement business logic for real counter data
+            function animateCounter(element, target, duration = 2000) {
+                let start = 0;
+                const increment = target / (duration / 16);
+                
+                function updateCounter() {
+                    start += increment;
+                    if (start < target) {
+                        element.textContent = Math.floor(start);
+                        requestAnimationFrame(updateCounter);
+                    } else {
+                        element.textContent = target;
+                    }
+                }
+                updateCounter();
+            }
+
+            // Intersection Observer for scroll animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate-slide-up');
+                        
+                        // Trigger counter animation if it's a counter element
+                        const counterElement = entry.target.querySelector('.counter-number');
+                        if (counterElement && !counterElement.hasAttribute('data-animated')) {
+                            counterElement.setAttribute('data-animated', 'true');
+                            animateCounter(counterElement, 582);
+                        }
+                    }
+                });
+            }, observerOptions);
+
+            // Observe elements for scroll animations
+            document.querySelectorAll('.glass, .counter-number').forEach(el => {
+                observer.observe(el);
+            });
+
+            // Smooth scrolling for navigation
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+
+            // Theme toggle functionality
+            // TODO: Implement theme switching logic
+            const themeToggle = document.querySelector('[data-event="click:toggleTheme"]');
+            if (themeToggle) {
+                themeToggle.addEventListener('click', function() {
+                    // Theme switching logic would go here
+                    console.log('Theme toggle clicked');
+                });
+            }
+
+            // Mobile menu toggle
+            // TODO: Implement mobile menu logic
+            const mobileMenuToggle = document.querySelector('[data-event="click:toggleMobileMenu"]');
+            if (mobileMenuToggle) {
+                mobileMenuToggle.addEventListener('click', function() {
+                    // Mobile menu logic would go here
+                    console.log('Mobile menu toggle clicked');
+                });
+            }
+
+            // Form submission handling
+            // TODO: Implement form validation and submission logic
+            const contactForm = document.querySelector('form');
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    // Form validation and submission logic would go here
+                    console.log('Form submitted');
+                });
+            }
+
+            // Add dynamic particle movement
+            const particles = document.querySelectorAll('.particle');
+            particles.forEach((particle, index) => {
+                const delay = index * 0.5;
+                particle.style.animationDelay = `${delay}s`;
+                
+                // Random positioning variation
+                setInterval(() => {
+                    const randomX = Math.random() * 100;
+                    const randomY = Math.random() * 100;
+                    particle.style.left = `${randomX}%`;
+                    particle.style.top = `${randomY}%`;
+                }, 10000 + (index * 2000));
+            });
+
+            // Parallax effect for hero section
+            window.addEventListener('scroll', () => {
+                const scrolled = window.pageYOffset;
+                const parallaxElements = document.querySelectorAll('.animate-float');
+                
+                parallaxElements.forEach((element, index) => {
+                    const speed = 0.5 + (index * 0.1);
+                    element.style.transform = `translateY(${scrolled * speed}px)`;
+                });
+            });
+
+        })();
+    </script>
+</body>
+</html>
