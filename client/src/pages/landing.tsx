@@ -78,9 +78,9 @@ export default function Landing() {
       {/* Hero Section */}
       <section className="min-h-screen flex items-center justify-center relative px-6 pt-20 bg-slate-900">
         <div className="container mx-auto max-w-7xl relative z-10">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="grid lg:grid-cols-[1fr_1.2fr] gap-8 items-center">
             {/* Left Column - Text Content */}
-            <div className="text-center lg:text-left">
+            <div className="text-center lg:text-left lg:pl-8">
               {/* Main Heading */}
               <motion.h1
                 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 leading-tight"
@@ -554,7 +554,7 @@ export default function Landing() {
                   </div>
                   <div>
                     <div className="font-semibold text-white">Phone</div>
-                    <div className="text-gray-400">+254116355233</div>
+                    <div className="text-gray-400">+254116366233</div>
                   </div>
                 </div>
                 
@@ -689,7 +689,7 @@ export default function Landing() {
               </p>
               <div className="text-gray-400">
                 <p className="mb-2">📧 info@moringa.co.ke</p>
-                <p className="mb-2">📞 +254116355233</p>
+                <p className="mb-2">📞 +254116366233</p>
                 <p>📍 Nairobi, Kenya</p>
               </div>
             </div>
