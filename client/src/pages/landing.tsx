@@ -68,7 +68,11 @@ export default function Landing() {
                 Moringa
               </div>
             </motion.div>
-            <Button variant="outline" className="border-green-500 text-green-400 hover:bg-green-500/10">
+            <Button 
+              variant="outline" 
+              className="border-green-500 text-green-400 hover:bg-green-500/10"
+              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+            >
               Contact Us
             </Button>
           </div>
@@ -88,7 +92,7 @@ export default function Landing() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
               >
-                Digital Solutions for<br />
+                <span className="whitespace-nowrap">Digital Solutions for </span>
                 <span className="bg-gradient-to-r from-green-400 via-emerald-500 to-green-600 bg-clip-text text-transparent">
                   Modern Business
                 </span>
@@ -114,6 +118,7 @@ export default function Landing() {
                 <Button
                   size="lg"
                   className="bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white font-semibold px-8 py-4 rounded-lg transition-all duration-300"
+                  onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
                 >
                   Get Started
                 </Button>
@@ -121,6 +126,7 @@ export default function Landing() {
                   size="lg"
                   variant="outline"
                   className="border-green-500 text-green-400 hover:bg-green-500/10 px-8 py-4 rounded-lg"
+                  onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
                 >
                   Learn More
                 </Button>
@@ -311,7 +317,7 @@ export default function Landing() {
       </section>
 
       {/* About Section */}
-      <section className="py-20 px-6">
+      <section id="about" className="py-20 px-6">
         <div className="container mx-auto max-w-7xl">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <motion.div
@@ -503,7 +509,7 @@ export default function Landing() {
       </section>
 
       {/* Contact Section */}
-      <section className="py-20 px-6">
+      <section id="contact" className="py-20 px-6">
         <div className="container mx-auto max-w-4xl">
           <motion.div
             className="text-center mb-12"
