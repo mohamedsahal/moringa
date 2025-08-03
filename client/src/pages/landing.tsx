@@ -96,9 +96,9 @@ export default function Landing() {
       {/* Hero Section */}
       <section className="min-h-screen flex items-center justify-center relative px-6 pt-20 bg-slate-900">
         <div className="container mx-auto max-w-7xl relative z-10">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left Column - Text Content */}
-            <div className="text-center lg:text-left max-w-2xl mx-auto lg:mx-0">
+            <div className="text-center lg:text-left">
               {/* Main Heading */}
               <motion.h1
                 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 leading-tight"
@@ -167,15 +167,19 @@ export default function Landing() {
             {/* Right Column - 3D Component (Hidden on mobile) */}
             <div className="relative h-[500px] lg:h-[600px] hidden lg:block">
               <motion.div
-                className="w-full h-full rounded-2xl overflow-hidden"
+                className="w-full h-full rounded-2xl overflow-hidden relative"
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 1, delay: 0.5 }}
               >
-                <Spline 
-                  scene="https://prod.spline.design/QYHiMjWrshPtiX4K/scene.splinecode"
-                  style={{ width: '100%', height: '100%' }}
-                />
+                <div className="absolute inset-0 overflow-hidden">
+                  <div className="w-[120%] h-full -mr-[20%]">
+                    <Spline 
+                      scene="https://prod.spline.design/QYHiMjWrshPtiX4K/scene.splinecode"
+                      style={{ width: '100%', height: '100%' }}
+                    />
+                  </div>
+                </div>
               </motion.div>
             </div>
           </div>
@@ -471,21 +475,21 @@ export default function Landing() {
           <div className="grid md:grid-cols-3 gap-8">
             {[
               {
-                name: "Sarah Johnson",
-                company: "TechCorp Industries", 
-                testimonial: "Moringa transformed our operations with their ERP system. We've seen a 40% increase in efficiency since implementation.",
+                name: "Abdi Khayr",
+                company: "Amal Bank", 
+                testimonial: "Moringa created exceptional motion graphics for our marketing campaigns. Their creative team delivered stunning visuals that significantly improved our brand engagement and customer response rates.",
                 rating: 5
               },
               {
-                name: "Michael Chen",
-                company: "Green Solutions Ltd",
-                testimonial: "The cloud migration service was seamless. Our team now works more efficiently with better collaboration tools.",
+                name: "Mohamed",
+                company: "Nugaal Laundry",
+                testimonial: "The laundry management system from Moringa revolutionized our operations. We now track orders efficiently, manage inventory better, and our customer satisfaction has increased dramatically.",
                 rating: 5
               },
               {
-                name: "Emily Rodriguez", 
-                company: "Innovation Hub",
-                testimonial: "Outstanding software development team. They delivered exactly what we needed, on time and within budget.",
+                name: "Mohamud", 
+                company: "Alcarafat Supermarket",
+                testimonial: "The ERB system implementation was flawless. Our tax compliance is now automated, reporting is seamless, and we've eliminated manual errors completely.",
                 rating: 5
               }
             ].map((testimonial, index) => (

@@ -67,9 +67,17 @@ Preferred communication style: Simple, everyday language.
 - **date-fns**: Modern date utility library for JavaScript
 - **nanoid**: URL-safe unique string ID generator
 
-## Recent Changes (August 2, 2025)
+## Recent Changes (August 3, 2025)
 - **Brand Identity Update**: Changed company name from JTech to Moringa
-- **Logo Implementation**: Created custom SVG Moringa logo component with transparent background
+- **Logo Implementation**: Replaced SVG logo with PNG version throughout the site
 - **Color Scheme Overhaul**: Updated entire theme to green nature-inspired colors matching Moringa brand
-- **Brand Carousel Update**: Changed partner company names to eco-friendly, nature-themed brands
+- **Contact Form Integration**: Added functional email sending using SMTP (info@moringa.co.ke)
+- **Contact Details Update**: Updated phone number to +254116355233
+- **Enhanced Sections**: Added comprehensive About, Process, Key Features, and Testimonials sections
+- **Client Testimonials**: Updated with real client names and specific service references:
+  - Abdi Khayr (Amal Bank) - motion graphics
+  - Mohamed (Nugaal Laundry) - laundry management system  
+  - Mohamud (Alcarafat Supermarket) - ERB system
+- **3D Component Optimization**: Cropped right side to hide watermark and improved spacing
+- **Alignment Improvements**: Enhanced visual hierarchy and spacing across all sections
 - **Theme Storage**: Updated local storage key to "moringa-ui-theme"
