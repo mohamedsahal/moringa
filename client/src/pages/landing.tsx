@@ -285,6 +285,198 @@ export default function Landing() {
         </div>
       </section>
 
+      {/* About Section */}
+      <section className="py-20 px-6">
+        <div className="container mx-auto">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+            >
+              <h2 className="text-3xl md:text-4xl font-bold mb-6">
+                Why Choose <span className="bg-gradient-to-r from-green-400 to-emerald-600 bg-clip-text text-transparent">
+                  Moringa?
+                </span>
+              </h2>
+              <p className="text-gray-300 text-lg mb-8 leading-relaxed">
+                We are a leading technology solutions provider with over a decade of experience in transforming businesses through innovative digital solutions. Our team of experts specializes in creating tailored systems that drive efficiency and growth.
+              </p>
+              <div className="grid md:grid-cols-2 gap-6">
+                {[
+                  { label: "Years Experience", value: "10+" },
+                  { label: "Projects Completed", value: "500+" },
+                  { label: "Client Satisfaction", value: "98%" },
+                  { label: "Team Members", value: "50+" }
+                ].map((stat, index) => (
+                  <motion.div
+                    key={stat.label}
+                    className="text-center p-4 backdrop-blur-md bg-green-500/5 rounded-lg border border-green-500/20"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: index * 0.1 }}
+                    viewport={{ once: true }}
+                  >
+                    <div className="text-2xl font-bold text-green-400 mb-2">{stat.value}</div>
+                    <div className="text-sm text-gray-400">{stat.label}</div>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+            
+            <motion.div
+              className="relative"
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+            >
+              <div className="backdrop-blur-md bg-green-500/10 rounded-2xl p-8 border border-green-500/20">
+                <h3 className="text-xl font-bold mb-6 text-green-400">Our Mission</h3>
+                <p className="text-gray-300 mb-6 leading-relaxed">
+                  To empower businesses with cutting-edge technology solutions that streamline operations, enhance productivity, and drive sustainable growth in the digital age.
+                </p>
+                <h3 className="text-xl font-bold mb-6 text-green-400">Our Vision</h3>
+                <p className="text-gray-300 leading-relaxed">
+                  To be the trusted technology partner for businesses worldwide, creating innovative solutions that transform industries and improve lives.
+                </p>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Process Section */}
+      <section className="py-20 px-6 backdrop-blur-md bg-green-500/5">
+        <div className="container mx-auto">
+          <motion.div
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Our <span className="bg-gradient-to-r from-green-400 to-emerald-600 bg-clip-text text-transparent">
+                Process
+              </span>
+            </h2>
+            <p className="text-gray-300 text-lg max-w-2xl mx-auto">
+              A proven methodology that ensures successful project delivery
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-4 gap-8">
+            {[
+              {
+                step: "01",
+                title: "Discovery",
+                description: "We analyze your business needs and requirements to understand your goals."
+              },
+              {
+                step: "02", 
+                title: "Planning",
+                description: "We create a detailed roadmap and timeline for your project implementation."
+              },
+              {
+                step: "03",
+                title: "Development", 
+                description: "Our expert team builds your solution using cutting-edge technologies."
+              },
+              {
+                step: "04",
+                title: "Launch",
+                description: "We deploy your solution and provide ongoing support and maintenance."
+              }
+            ].map((process, index) => (
+              <motion.div
+                key={process.step}
+                className="text-center"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.2 }}
+                viewport={{ once: true }}
+              >
+                <div className="w-16 h-16 mx-auto mb-6 backdrop-blur-md bg-green-500/10 rounded-full flex items-center justify-center border-2 border-green-500/20">
+                  <span className="text-xl font-bold text-green-400">{process.step}</span>
+                </div>
+                <h3 className="text-xl font-bold mb-4 text-white">{process.title}</h3>
+                <p className="text-gray-300 text-sm leading-relaxed">{process.description}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials Section */}
+      <section className="py-20 px-6">
+        <div className="container mx-auto">
+          <motion.div
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              What Our <span className="bg-gradient-to-r from-green-400 to-emerald-600 bg-clip-text text-transparent">
+                Clients Say
+              </span>
+            </h2>
+            <p className="text-gray-300 text-lg max-w-2xl mx-auto">
+              Don't just take our word for it - hear from our satisfied clients
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              {
+                name: "Sarah Johnson",
+                company: "TechCorp Industries", 
+                testimonial: "Moringa transformed our operations with their ERP system. We've seen a 40% increase in efficiency since implementation.",
+                rating: 5
+              },
+              {
+                name: "Michael Chen",
+                company: "Green Solutions Ltd",
+                testimonial: "The cloud migration service was seamless. Our team now works more efficiently with better collaboration tools.",
+                rating: 5
+              },
+              {
+                name: "Emily Rodriguez", 
+                company: "Innovation Hub",
+                testimonial: "Outstanding software development team. They delivered exactly what we needed, on time and within budget.",
+                rating: 5
+              }
+            ].map((testimonial, index) => (
+              <motion.div
+                key={testimonial.name}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.2 }}
+                viewport={{ once: true }}
+              >
+                <Card className="backdrop-blur-md bg-white/5 border border-green-500/20 h-full">
+                  <CardContent className="p-8">
+                    <div className="flex mb-4">
+                      {[...Array(testimonial.rating)].map((_, i) => (
+                        <div key={i} className="w-5 h-5 text-green-400">⭐</div>
+                      ))}
+                    </div>
+                    <p className="text-gray-300 mb-6 leading-relaxed">"{testimonial.testimonial}"</p>
+                    <div className="border-t border-green-500/20 pt-4">
+                      <div className="font-semibold text-white">{testimonial.name}</div>
+                      <div className="text-sm text-green-400">{testimonial.company}</div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Contact Section */}
       <section className="py-20 px-6">
         <div className="container mx-auto">
@@ -406,16 +598,50 @@ export default function Landing() {
       </section>
 
       {/* Footer */}
-      <footer className="py-12 backdrop-blur-md bg-slate-900/50 border-t border-green-500/20">
-        <div className="container mx-auto px-6 text-center">
-          <div className="flex items-center justify-center space-x-3 mb-4">
-            <MoringaLogo size={48} />
-            <div className="text-3xl font-bold bg-gradient-to-r from-green-400 to-emerald-600 bg-clip-text text-transparent">
-              Moringa
+      <footer className="py-16 backdrop-blur-md bg-slate-900/50 border-t border-green-500/20">
+        <div className="container mx-auto px-6">
+          <div className="grid md:grid-cols-4 gap-8 mb-12">
+            <div className="md:col-span-2">
+              <div className="flex items-center space-x-3 mb-4">
+                <MoringaLogo size={48} />
+                <div className="text-3xl font-bold bg-gradient-to-r from-green-400 to-emerald-600 bg-clip-text text-transparent">
+                  Moringa
+                </div>
+              </div>
+              <p className="text-gray-400 mb-6 max-w-md">
+                Transforming businesses through innovative technology solutions. Your trusted partner for digital transformation.
+              </p>
+              <div className="text-gray-400">
+                <p className="mb-2">📧 info@moringa.co.ke</p>
+                <p className="mb-2">📞 +254 700 000 000</p>
+                <p>📍 Nairobi, Kenya</p>
+              </div>
+            </div>
+            
+            <div>
+              <h3 className="text-white font-semibold mb-4">Services</h3>
+              <ul className="space-y-2 text-gray-400">
+                <li>ERP Systems</li>
+                <li>Software Development</li>
+                <li>Cloud Services</li>
+                <li>Digital Transformation</li>
+              </ul>
+            </div>
+            
+            <div>
+              <h3 className="text-white font-semibold mb-4">Company</h3>
+              <ul className="space-y-2 text-gray-400">
+                <li>About Us</li>
+                <li>Our Process</li>
+                <li>Case Studies</li>
+                <li>Contact</li>
+              </ul>
             </div>
           </div>
-          <p className="text-gray-400 mb-6">Transforming businesses through innovative technology solutions</p>
-          <p className="text-gray-500">&copy; 2024 Moringa. All rights reserved.</p>
+          
+          <div className="border-t border-green-500/20 pt-8 text-center">
+            <p className="text-gray-500">&copy; 2024 Moringa. All rights reserved.</p>
+          </div>
         </div>
       </footer>
     </div>
