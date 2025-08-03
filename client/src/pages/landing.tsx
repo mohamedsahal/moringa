@@ -271,6 +271,103 @@ export default function Landing() {
         </div>
       </section>
 
+      {/* Products Section */}
+      <section className="py-20 px-6 backdrop-blur-md bg-green-500/5">
+        <div className="container mx-auto max-w-7xl">
+          <motion.div
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Our <span className="bg-gradient-to-r from-green-400 to-emerald-600 bg-clip-text text-transparent">
+                Products
+              </span>
+            </h2>
+            <p className="text-gray-300 text-lg max-w-2xl mx-auto">
+              Comprehensive management systems designed to streamline your business operations
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              {
+                title: "Laundry Management System",
+                description: "Complete solution for laundry businesses with customer tracking, order management, and automated billing.",
+                icon: "🧺",
+                features: ["Order Processing", "Customer Database", "Billing & Payments"]
+              },
+              {
+                title: "Restaurant Management System",
+                description: "Comprehensive restaurant operations management including POS, inventory, and staff scheduling.",
+                icon: "🍽️",
+                features: ["POS System", "Menu Management", "Table Reservations"]
+              },
+              {
+                title: "School Management System",
+                description: "Educational institution management covering students, staff, academics, and administrative tasks.",
+                icon: "🎓",
+                features: ["Student Records", "Grade Management", "Fee Collection"]
+              },
+              {
+                title: "Inventory Management System",
+                description: "Smart inventory tracking with real-time stock monitoring, automated reordering, and analytics.",
+                icon: "📦",
+                features: ["Stock Tracking", "Auto Reordering", "Analytics Dashboard"]
+              },
+              {
+                title: "Real Estate Management System",
+                description: "Property management solution for real estate businesses with listings, client management, and transactions.",
+                icon: "🏢",
+                features: ["Property Listings", "Client Management", "Transaction Tracking"]
+              },
+              {
+                title: "Task Management System",
+                description: "Project and task management platform to enhance team productivity and collaboration.",
+                icon: "✅",
+                features: ["Project Planning", "Team Collaboration", "Progress Tracking"]
+              }
+            ].map((product, index) => (
+              <motion.div
+                key={product.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
+              >
+                <Card className="backdrop-blur-md bg-white/5 border border-green-500/20 hover:border-green-500/40 transition-all duration-300 h-full group hover:scale-105">
+                  <CardContent className="p-6">
+                    <div className="text-4xl mb-4 text-center">{product.icon}</div>
+                    <h3 className="text-xl font-bold mb-3 text-center bg-gradient-to-r from-green-400 to-emerald-600 bg-clip-text text-transparent">
+                      {product.title}
+                    </h3>
+                    <p className="text-gray-300 mb-4 text-sm leading-relaxed text-center">
+                      {product.description}
+                    </p>
+                    <div className="space-y-2">
+                      {product.features.map((feature, idx) => (
+                        <div key={idx} className="flex items-center text-sm text-gray-400">
+                          <span className="text-green-400 mr-2">✓</span>
+                          {feature}
+                        </div>
+                      ))}
+                    </div>
+                    <Button 
+                      className="w-full mt-4 bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                      onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                    >
+                      Learn More
+                    </Button>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Stats Section */}
       <section className="py-16 px-6 backdrop-blur-md bg-green-500/5">
         <div className="container mx-auto">
