@@ -92,7 +92,7 @@ export default function Landing() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
               >
-                <span className="whitespace-nowrap">Digital Solutions for </span>
+                Digital Solutions for<br />
                 <span className="bg-gradient-to-r from-green-400 via-emerald-500 to-green-600 bg-clip-text text-transparent">
                   Modern Business
                 </span>
