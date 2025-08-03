@@ -132,24 +132,7 @@ export default function Landing() {
                 </Button>
               </motion.div>
 
-              {/* Stats */}
-              <motion.div
-                className="flex gap-8 justify-center lg:justify-start"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.8 }}
-              >
-                <div>
-                  <div className="text-2xl font-bold text-green-400">
-                    <AnimatedCounter target={100} />+
-                  </div>
-                  <div className="text-sm text-gray-400">Happy Clients</div>
-                </div>
-                <div>
-                  <div className="text-2xl font-bold text-green-400">100%</div>
-                  <div className="text-sm text-gray-400">Success Rate</div>
-                </div>
-              </motion.div>
+
             </div>
 
             {/* Right Column - 3D Component (Hidden on mobile) */}
@@ -250,9 +233,9 @@ export default function Landing() {
               },
               {
                 icon: Leaf,
-                title: "Cloud Services",
-                description: "Scalable cloud infrastructure and migration services to ensure your business stays ahead of the curve.",
-                features: ["Cloud Migration", "DevOps Solutions", "24/7 Support"],
+                title: "Digital Marketing",
+                description: "Comprehensive digital marketing strategies to boost your online presence and drive customer engagement.",
+                features: ["SEO Optimization", "Social Media Management", "Content Strategy"],
                 color: "text-lime-400"
               }
             ].map((service, index) => (
